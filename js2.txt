@@ -1,0 +1,124 @@
+1. js html css 에서 이름 짓는 규칙(권장)
+    html >> <h1 class=js-title title></h1>
+    자바스크립트에서 select 할때는 js-title
+    css 등에서 select 할때는 title
+
+2. 날짜 객체(클래스) 생성 const date = new Date()
+    date.getDate
+    date.getHours 등 사용 가능
+
+3. setInterval(fn, 1000(ms))
+    특정 함수를 간격을 두고 실행
+    실시간 효과
+
+4. 삼항연산자
+    clockTitle.innerText = 
+    `${hour < 10 ? `0${hour}` : hour}:${
+        minute < 10 ? `0${minute}` : minute}:${
+            second < 10 ? `0${second}` : second}`;
+
+    조건 ? 참 : 거짓 형태로 구성
+    현재는  `${조건 ? 참(`0${???}`) : 거짓(???)} 형태임
+
+5. local storage
+    스크립트 안에 있는 작은 저장 공간 (url기반)
+    application > localstorage에 저장
+    
+    1) localStorage.setItem(key, value)
+        >> localStorage에 item 저장
+    2) localStorage.getItem(key)
+        >> localStorage에서 해당 item을 불러옴
+    
+
+6. event.preventDefault();
+    ex) 
+    function handleSubmit(event){
+        event.preventDefault();
+    }
+    
+    .addEventListner("event", handleSubmit)
+    >> evnet 후의 상태를 유지 (초기화 X)
+    submit할 때 placeholder가 초기화되지 않음.
+
+7. css display
+    display : none >> 숨김
+    display : block >> 보임 (덮어 씌움)
+
+8. document.createElement("li")
+    html에 새로운 Element 추가
+    ex)
+    const li = document.createElement("li")
+    const span = document.createElement("span")
+    span.innerText = text
+    li.appendChild(span) >> 객체 안에 객체 넣기
+
+9. <meta charset="utf-8" />
+    <head> 안에 작성
+
+10. JSON.stringify(OBJECT);
+    자바스크립트는 localStorage에 모든 정보를 String 으로 저장하려함
+    따라서 object를 저장할때는 위와 같이 string화 시켜줘야함
+
+11. JSON.parse(STRING):
+    스트링으로 저장된 데이터를 다시 Object화
+
+12. LIST.forEach(FUNCTION);
+    리스트에 있는 각각의 요소들에 대응하여 실행되는 함수
+
+13. event.target.parentNode
+    event.target => 클릭된 Element를 반환
+    event.target.parentNode => 클릭된 Element의 부모 반환
+
+14. LIST.filter(FUNCTION)
+    forEach와 마찬가지로 리스트의 각각의 요소들에 대해 실행되면
+    FUNCTION의 리턴값이 true인 요소들에 대해서만 리턴한 새로운 LIST를 반환한다.
+    
+15. 랜덤 수 생성
+    Math.floor(Math.random() * 5)
+
+16. BODY.prepend(SOMETHING)
+    가장 첫번째 자식으로 넣기
+
+17. 기본적인 css 형태 
+    @keyframes fadeIn {
+        from{
+            opacity: 0;
+        } to {
+            opacity: 1;
+        }
+    } >> 애니메이션 동작 만들기
+
+    .bgImage {
+        position : absolute; >> 절대위치
+        top : 0; >> 시작점
+        left : 0; >> 시작점
+        width : 100%; >> 비율 크기
+        height : 100%; >> 비율 크기
+        z-index: -1; >> 요소들의 상하 배열 : -1 가장 아래
+        animation: fadeIn 0.5s linear; : 전환효과
+    }  
+
+18. js에서 Obj 를 저장할때 key 와 value가 같다면 이런식으로 코딩 가능
+    SOMETHINGOBJ = {
+        hamburger = hamburger,
+        pizza = pizza
+    };
+            ==
+    SOMETHINGOBJ = {
+        hamburger,
+        pizza
+    };
+
+19. navigator >> 위치 관련 클래스
+       
+    navigator.geolocation.getCurrentPosition(성공, 실패)
+    현재 위치 가져오기
+
+20. API 사용하기
+    fetch(API주소)를 사용하면
+    브라우저 네트워크 탭에 데이터 불러옴
+
+21. .then
+    ex) fetch(API).then(function(return of API))
+    >> 앞의 패치에서 데이터가 전부 로드 된 후에 then 안에 있는 함수 실행
+    >> then 안에 있는 function은 then 앞에 있는 함수의 리턴값을 파라미터로 받는다
